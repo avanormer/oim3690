@@ -1,26 +1,21 @@
 # Session 2 - [1/22] - [Version Control and GitHub]
 
-### Version Control
-- Version control is a way to keep track of changes to files over time.
-- Instead of saving many copies with different names (`essay_v1`, `essay_final`, etc.), version control records changes in an organized way. :contentReference[oaicite:0]{index=0}
+Version Control
+- Version control keeps track of changes to files over time.
+- Instead of saving many copies with different names (`essay_v1`, `essay_final`, etc.), version control = records and changes in an organized way. 
+:contentReference[oaicite:0]{index=0}
 
-### Git
-- **Git** is the most widely used version control software. :contentReference[oaicite:1]{index=1}
-- You can use Git on your own computer. :contentReference[oaicite:2]{index=2}
-- It is better to store your version control online so you are less likely to lose your work. :contentReference[oaicite:3]{index=3}
-- Major Git hosting providers:
+Git
+- Git: most widely used version control software.  
+- Store your version control online so you are less likely to lose your work. 
+
   - GitHub
   - GitLab
-  - BitBucket :contentReference[oaicite:4]{index=4}
+  - BitBucket 
 
-### Why Use GitHub?
-- Track every change you make. :contentReference[oaicite:5]{index=5}
-- Backup your code in the cloud. :contentReference[oaicite:6]{index=6}
-- Build a portfolio that employers can view. :contentReference[oaicite:7]{index=7}
-- Collaborate easily with other people. :contentReference[oaicite:8]{index=8}
-- Host websites for free using GitHub Pages. :contentReference[oaicite:9]{index=9}
-
-### Summary
-- Version control helps organize and manage changes to files. :contentReference[oaicite:10]{index=10}
-- Git is a tool that implements version control. :contentReference[oaicite:11]{index=11}
-- GitHub is an online service that hosts Git repositories and adds features like collaboration and portfolio building. :contentReference[oaicite:12]{index=12}
+GitHub
+- Tracks every change made 
+- Backup code in the cloud.  
+- Build a portfolio that employers can view 
+- Collaborate easily with other people
+- Host websites for free using GitHub Pages.  
