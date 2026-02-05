@@ -1,38 +1,37 @@
 # Session 4 - [1/29] - [How Websites Work]
 
 ## What I learned today
-## How a Website Loads (Beginner Explanation)
 
-When you type a website address (URL) into your browser and press Enter, your computer follows a series of steps to find and display the website.
+When you type a website address (URL) into your browser, press Enter, computer follows a series of steps to find and display the website.
 
-### 1. Entering the URL
-- A **URL** is the address of a website.
-- Example: `www.google.com`
-- Computers do not understand names like “google,” so they must be translated into numbers.
+Entering the URL
+- URL = is the address of a website.
+- Computers don't understand names like “google,” so they're translated into numbers
 
-### 2. DNS Lookup
-- **DNS (Domain Name System)** acts like the internet’s phone book.
-- It translates the website name into an **IP address** (a numerical address).
-- This tells the browser where the website is located.
-
-### 3. HTTP Request
+DNS
+- DNS (Domain Name System) = like the internet’s phone book.
+- Translates the website name into an IP address (a numerical address).
+- Tells the browser where the website is located.
+HTTP Requests
 - After finding the IP address, the browser sends a message to the website’s server.
-- This message is called an **HTTP request**.
-- Most requests are **GET requests**, which ask the server to send the webpage.
+- This message is called an HTTP request.
+most requests are GET requests
 
-### 4. Server Response
-- A **server** is a computer that stores websites.
+Server Response
+- Server= computer that stores websites.
 - The server sends back:
-  - **HTML** – page structure
-  - **CSS** – styling such as colors and layout
-  - **JavaScript** – interactivity
-- The response also includes a **status code**:
+  - HTML =page structure
+  - CSS = styling such as colors and layout
+  - Javascript = – interactivity
+
+- The response also includes a STATUS CODE
+STATUS CODES:
   - `200 OK` means the request was successful
   - `404 Not Found` means the page does not exist
 
-### 5. Browser Rendering
-- The browser reads the files it receives.
-- It builds the page structure from HTML.
+Steps:
+- Browser reads the files it receives
+- Builds the page structure from HTML
 - It applies styles from CSS.
-- It runs JavaScript for interaction.
-- The co
+- It runs JavaScript for interaction
+
