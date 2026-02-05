@@ -1,10 +1,9 @@
 # Session 5 - [2/3] - [HTML Essentials]
 
-### What Is HTML?
-- **HTML (HyperText Markup Language)** is the language used to create the structure of a webpage.
-- HTML tells the browser what content exists and how it is organized.
-- HTML does not control styling or behavior.
+HTML
+HTML (HyperText Markup Language) = the language used to create the structure of a webpage.
+- tells browser what content exists and how it is organized
+- doesn't control styling or behavior.
 
-### Basic HTML Document Structure
-- Every HTML page follows a basic structure.
+Every HTML follows a basic strucutre!
 
