@@ -1,1 +1,42 @@
-#Learning Log - Session 2 (1/22) 
+# Session 2 - [1/27] - [Iterate with AI (Asynchronous Class)]
+
+## What I learned today
+- Email etiquette:  including course number in subject
+  - Ex: "OIM3690: Question about GitHub setup") 
+
+## Code/work I'm proud of (optional)
+- File Navigation Codes:
+  - cd folder = change directory (go into a folder)
+  - cd... -= go up one level
+  - dir = list files in a current folder
+  - mkdir folder = make a new folder
+  - pwd = pirnt working directory (explains where I am)
+  
+
+## Challenges I faced
+ - originally challenging AI to make text into HTML and really getting into detail
+for what was ideal
+
+## AI usage (if any)
+  - AI can turn HTML into text... How? 
+= Ask AI to generate only index.html
+  - Open username.github.io folder in VS Code
+= Create index.html and paste the code
+- Open index.html file directly in browser
+- Open with Live Server extension in VS Code
+Using the description below, generate a simple HTML file called index.html only.
+
+***WHEN PASTING INTO AI, UTILIZE THIS PROMPT: 
+
+I am [Your Name], a Babson College student.
+[Paste your 2–3 sentences here.]
+
+Requirements:
+- One single HTML file (index.html)
+- No external frameworks
+- Clean and simple layout
+- Include:
+  - Header with my name
+  - Short introduction
+  - A section for skills or interests, ...
+
