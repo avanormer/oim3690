@@ -1,0 +1,37 @@
+# Session 4 - [1/29] - [How Websites Work]
+
+## What I learned today
+
+When you type a website address (URL) into your browser, press Enter, computer follows a series of steps to find and display the website.
+
+Entering the URL
+- URL = is the address of a website.
+- Computers don't understand names like “google,” so they're translated into numbers
+
+DNS
+- DNS (Domain Name System) = like the internet’s phone book.
+- Translates the website name into an IP address (a numerical address).
+- Tells the browser where the website is located.
+HTTP Requests
+- After finding the IP address, the browser sends a message to the website’s server.
+- This message is called an HTTP request.
+most requests are GET requests
+
+Server Response
+- Server= computer that stores websites.
+- The server sends back:
+  - HTML =page structure
+  - CSS = styling such as colors and layout
+  - Javascript = – interactivity
+
+- The response also includes a STATUS CODE
+STATUS CODES:
+  - `200 OK` means the request was successful
+  - `404 Not Found` means the page does not exist
+
+Steps:
+- Browser reads the files it receives
+- Builds the page structure from HTML
+- It applies styles from CSS.
+- It runs JavaScript for interaction
+
