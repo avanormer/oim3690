@@ -1,0 +1,176 @@
+$content = @"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page description here">
+    <meta name="keywords" content="keywords, here">
+    <meta name="author" content="Your Name">
+    <title>Page Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem 0 2rem 0;
+            padding: 0 2rem;
+        }
+
+        form {
+            background-color: #f4f4f4;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        form label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        form button {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#login">Login</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>This is the home section of your website.</p>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>This is the about section of your website.</p>
+        </section>
+
+        <section id="services">
+            <h2>Services</h2>
+            <p>This is the services section of your website.</p>
+        </section>
+
+        <section id="login">
+            <h2>Login</h2>
+            <p>Enter your credentials to login to your account.</p>
+            <form action="https://oim.108122.xyz/echo/view" method="POST">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>This is the contact section of your website.</p>
+            <form action="https://oim.108122.xyz/echo/view" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" pattern="[a-zA-Z\s]+" title="Subject must contain only letters and spaces" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+"@
+
+$filePath = "c:\Users\avanormer1\OneDrive - Babson College\Desktop\oim3690\s13-form-demo.html"
+$content | Set-Content -Path $filePath -Encoding UTF8
+Write-Host "Email and Subject fields added successfully!"
