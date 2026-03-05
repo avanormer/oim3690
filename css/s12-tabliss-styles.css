@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: #ffffff;
+
+  /* softer overlay + new background */
+  background-image:
+    linear-gradient(rgba(20, 30, 40, 0.4), rgba(20, 30, 40, 0.4)),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1950&q=80");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* MAIN HERO SECTION */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  transform: translateY(-20px);
+}
+
+/* CLOCK */
+
+.time {
+  margin: 0 0 12px;
+
+  font-size: clamp(3.5rem, 8vw, 5.8rem);
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+  line-height: 1;
+
+  text-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+}
+
+/* LINKS CONTAINER */
+
+.links {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* INDIVIDUAL LINKS */
+
+.link {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  text-decoration: none;
+
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 500;
+
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* LINK HOVER EFFECT */
+
+.link:hover,
+.link:focus-visible {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* CREDITS SECTION */
+
+.credits {
+  position: fixed;
+
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  pointer-events: none;
+}
+
+.credit-left,
+.credit-right {
+  margin: 0;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 700px) {
+
+  .hero {
+    transform: translateY(-10px);
+  }
+
+  .time {
+    margin-bottom: 14px;
+  }
+
+  .links {
+    gap: 14px;
+  }
+
+  .credit-left,
+  .credit-right {
+    font-size: 0.85rem;
+  }
+
+}

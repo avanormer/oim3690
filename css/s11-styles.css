@@ -1,0 +1,187 @@
+:root {
+  --babson-green: #006644;
+
+  /* pastel palette */
+  --accent-color: #f7a8a8;
+  --soft-blue: #dbeafe;
+  --soft-pink: #fde2e4;
+  --soft-lavender: #e9d5ff;
+  --soft-yellow: #fff7c2;
+
+  --spacing: 20px;
+}
+
+* {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+}
+
+/* MAIN TITLE */
+
+h1 {
+  color: var(--babson-green);
+  font-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 40px auto;
+  padding: 20px;
+
+  border-radius: 12px;
+  border: 4px solid #cbd5e1;
+
+  background-color: var(--soft-blue);
+
+  text-align: center;
+
+  transition: transform 0.4s ease;
+}
+
+h1:hover {
+  transform: scale(1.03);
+}
+
+/* TEXT */
+
+p {
+  color: #4b5563;
+}
+
+h2 {
+  color: var(--babson-green);
+}
+
+/* CLASSES */
+
+.yellow {
+  color: #d97706;
+  font-size: larger;
+}
+
+.julissa {
+  color: #6b7280;
+  font-family: "Oswald";
+}
+
+/* ID */
+
+#second-paragraph {
+  color: #fb7185;
+}
+
+/* CARD COMPONENT */
+
+.card {
+  background-color: var(--soft-pink);
+  padding: 24px;
+  margin: 25px auto;
+
+  border-radius: 14px;
+
+  max-width: 500px;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+}
+
+/* HIGHLIGHT TEXT */
+
+.highlight {
+  font-size: 2rem;
+  color: #7c3aed;
+}
+
+/* LIST STYLING */
+
+ul {
+  margin: 20px auto;
+  width: 220px;
+}
+
+li {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+li:first-child {
+  font-weight: bold;
+  background-color: var(--soft-yellow);
+}
+
+li:last-child {
+  background-color: var(--soft-lavender);
+}
+
+/* IMAGE CENTERING */
+
+img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+/* LINK INTERACTION */
+
+a:hover {
+  color: white;
+  background-color: var(--accent-color);
+  text-decoration: none;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+/* BUTTON */
+
+.button {
+  background-color: #a5b4fc;
+  color: white;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.5s,
+    transform 0.4s ease,
+    box-shadow 0.4s;
+}
+
+.button:hover {
+  background-color: #f9a8d4;
+
+  transform: scale(1.1);
+
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+}
+
+/* INTERACTIVE ELEMENT */
+
+.my-element {
+  background-color: #f1f5f9;
+
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  transition:
+    background-color 0.5s,
+    color 0.5s,
+    transform 0.3s;
+}
+
+.my-element:hover {
+  background-color: #c4b5fd;
+  color: white;
+  transform: scale(1.05);
+}

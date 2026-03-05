@@ -1,0 +1,70 @@
+# Session 9 - [2/19] 
+
+ Covering CSS
+ 1) typography = covers font family, size, weight, style, alighment, etc...
+ 2) google fonts = <!-- In <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet">
+
+BOX MODEL = every element is in a BOX
+- layers:
+    - content (actual content)
+    - padding (space inside the border) 
+    - border (the edge)
+    - margin (space outside the border)
+
+<div> = block container (groups elements together)
+    ex: 
+    <div class="card">
+  <h2>Title</h2>
+  <p>Content here...</p>
+</div>
+
+<span> = incline container (styles part of the text)
+    ex: <p>The price is <span class="price">$99</span> today!</p>
+
+    # Session 10 - [2/24] 
+
+Quick Selector Review (Keep in Check)
+div and span review
+div = blocks container (sections, cards, wrawppers, etc)
+span = inline container (highlight a word, style part of text)
+
+DISPLAY TYPES
+= block vs. inline
+
+BLOCK = movements stack vertically; take full width
+- ex: <div>, <p>, <h1>, <ul>, <li>, <section>
+
+INLINE = movements flow side by side; similar to words in a sentence
+- ex: <span>, <a>, <strong>, <img>
+
+centering an image:
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+Change to block first, then auto margins work
+
+Pseudo-classes = Interactive Styles
+
+mouse hovers over a link:
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+an input is focused:
+input:focus {
+  border-color: blue;
+  outline: none;
+}
+
+first and last child elements:
+li:first-child { font-weight: bold; }
+li:last-child { color: gray; }
+
+CSS transitions: be sure to pair :hover with transition for a polished, professional feel.

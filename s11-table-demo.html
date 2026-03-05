@@ -1,0 +1,98 @@
+<div class="table-controls" style="margin:1rem 0; display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+    <label style="font-size:0.95rem; color:#333">Search:
+        <input id="search" type="search" placeholder="Search name or major" style="margin-left:0.5rem; padding:0.35rem 0.5rem;">
+    </label>
+    <label style="font-size:0.95rem; color:#333">Year:
+        <select id="yearFilter" style="margin-left:0.5rem; padding:0.35rem 0.5rem;">
+            <option value="">All</option>
+            <option>Senior</option>
+            <option>Junior</option>
+            <option>Sophomore</option>
+        </select>
+    </label>
+    <small style="color:#666; margin-left:auto;">Showing <span id="visibleCount">5</span> students</small>
+</div>
+
+<table class="student-table" aria-describedby="table-desc">
+    <caption>Class Roster — Spring 2026</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Major</th>
+            <th>GPA</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>001</td>
+            <td>Sarah Johnson</td>
+            <td>Computer Science</td>
+            <td>3.8</td>
+            <td>Junior</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Marcus Chen</td>
+            <td>Business</td>
+            <td>3.6</td>
+            <td>Senior</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Emily Rodriguez</td>
+            <td>Engineering</td>
+            <td>3.9</td>
+            <td>Sophomore</td>
+        </tr>
+        <tr>
+            <td>004</td>
+            <td>Andrew Kim</td>
+            <td>Data Science</td>
+            <td>3.7</td>
+            <td>Junior</td>
+        </tr>
+        <tr>
+            <td>005</td>
+            <td>Jessica Lee</td>
+            <td>Marketing</td>
+            <td>3.5</td>
+            <td>Senior</td>
+        </tr>
+    </tbody>
+</table>
+
+<p id="table-desc" style="color:#666; font-size:0.9rem; margin-top:0.75rem;">Use the search box or year filter to narrow the roster.</p>
+
+<script>
+    const search = document.getElementById('search');
+    const yearFilter = document.getElementById('yearFilter');
+    const rows = Array.from(document.querySelectorAll('.student-table tbody tr'));
+    const visibleCount = document.getElementById('visibleCount');
+
+    function updateCount() {
+        const count = rows.filter(r => r.style.display !== 'none').length;
+        visibleCount.textContent = count;
+    }
+
+    function filterRows() {
+        const q = search.value.trim().toLowerCase();
+        const year = yearFilter.value;
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            const name = cells[1].textContent.toLowerCase();
+            const major = cells[2].textContent.toLowerCase();
+            const yr = cells[4].textContent;
+            const matchesQuery = !q || name.includes(q) || major.includes(q) || cells[0].textContent.includes(q);
+            const matchesYear = !year || yr === year;
+            row.style.display = (matchesQuery && matchesYear) ? '' : 'none';
+        });
+        updateCount();
+    }
+
+    search.addEventListener('input', filterRows);
+    yearFilter.addEventListener('change', filterRows);
+    // initialize
+    updateCount();
+</script>

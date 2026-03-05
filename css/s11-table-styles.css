@@ -1,0 +1,50 @@
+:root {
+  --border-color: #444;
+  --header-bg: #f6f7fb;
+  --row-alt-bg: #f9fafc;
+  --row-hover-bg: #dbeafe;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 30px;
+  background-color: #fafafa;
+}
+
+/* Table container */
+
+.student-records {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Table cells */
+
+.student-records th,
+.student-records td {
+  border: 1px solid var(--border-color);
+  padding: 12px 14px;
+  text-align: left;
+}
+
+/* Header row */
+
+.student-records thead {
+  background-color: var(--header-bg);
+  font-weight: bold;
+}
+
+/* Alternating row color (zebra striping) */
+
+.student-records tbody tr:nth-child(even) {
+  background-color: var(--row-alt-bg);
+}
+
+/* Hover interaction */
+
+.student-records tbody tr:hover {
+  background-color: var(--row-hover-bg);
+  cursor: pointer;
+}

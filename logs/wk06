@@ -1,0 +1,22 @@
+# Session 11 - [2/26] 
+
+CSS Layout Evolution
+tables (90s) to floats (2000s) to flexbox (2010s = one dimensional layouts)
+to grid (2017+ = 2d layouts)
+--- today we use flexbox and grid together
+
+flexbox basics:
+.container {
+  display: flex;
+}
+
+- makes all direct children flex items whihc:
+line up in a row (thru default)
+shrink/grow to fit
+easily alignable
+
+WHEN TO USE FLEXBOX - 
+Content flows in one direction; Items to determine their own size; Alignment within a row/column
+
+WHEN TO USE GRID - 
+Need rows AND columns; Need precise control over layout; Complex page structures

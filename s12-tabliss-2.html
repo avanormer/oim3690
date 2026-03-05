@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabliss Style Start Page</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="css/s12-tabliss-styles.css">
+</head>
+<body>
+	<main class="hero">
+		<h1 id="time" class="time">07:24</h1>
+
+		<nav class="links" aria-label="Quick links">
+			<a class="link" href="https://tabliss.io" target="_blank" rel="noopener noreferrer">
+				<i class="fa-regular fa-star" aria-hidden="true"></i>
+				<span>Tabliss</span>
+			</a>
+			<a class="link" href="https://github.com" target="_blank" rel="noopener noreferrer">
+				<i class="fa-brands fa-github" aria-hidden="true"></i>
+				<span>GitHub</span>
+			</a>
+			<a class="link" href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+				<i class="fa-brands fa-twitter" aria-hidden="true"></i>
+				<span>Twitter</span>
+			</a>
+		</nav>
+	</main>
+
+	<footer class="credits" aria-label="Photo credits">
+		<p class="credit-left">Photo / John Fowler / Unsplash</p>
+		<p class="credit-right">Kelso Dunes</p>
+	</footer>
+
+	<script>
+		function updateTime() {
+			const now = new Date();
+			const hours = String(now.getHours()).padStart(2, "0");
+			const minutes = String(now.getMinutes()).padStart(2, "0");
+			const seconds = String(now.getSeconds()).padStart(2, "0");
+			document.getElementById("time").textContent = `${hours}:${minutes}:${seconds}`;
+		}
+
+		updateTime();
+		setInterval(updateTime, 1000);
+	</script>
+</body>
+</html>

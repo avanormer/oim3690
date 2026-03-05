@@ -1,0 +1,30 @@
+# Session 7 - [2/10] 
+
+Review:
+<a href ="babson.edu">Babson</a> but link doesn't work... what's wrong? = URL is missing the protocol (https://)
+
+Semantic = meaningful
+two approaches (non semantic vs. semantic)
+
+non-semantic = what AI generates - uses a lot of <div>
+
+semantic = better; easier and more commonly comprehendable and changeable
+semantic tags = <header>
+<main>
+<section>
+<footer>
+
+new tags to explore and their uses
+<table> = displays data in tables (not for layout)
+<blockquote> = quotations
+<mark> - highlights text
+
+# Session 8 - [2/12] 
+
+Exercise: working on adding CSS to about-me.html
+- change font-family on body
+change color of your h1
+add some padding to body
+ *YOU CAN UTILIZE COPILOT: - review each suggestion and get creative, try ur own prompts, make it look how you want 
+ ex: add spacing between sections; style navigation links to be horrizontal
+ DevTools CSS: right click any element; inspect; in styles panel, try changing values live. shows how DevTools changes dissapear on refresh so you have to save what you keep

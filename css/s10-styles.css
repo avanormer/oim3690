@@ -1,0 +1,95 @@
+:root {
+  --babson-green: #006644;
+  --accent-color: coral;
+  --spacing: 20px;
+}
+
+* {
+  font-family: "Times New Roman", Times, serif;
+  /* border: 1px solid black; */
+  margin: 0;
+}
+
+h1 {
+  /* color: red; */
+  /* color: #006644; */
+  color: var(--babson-green);
+  font-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px 20px 0 100px;
+  padding: 20px;
+  border: 10px solid black;
+  background-color: lightgray;
+  text-align: center;
+}
+p {
+  color: green;
+}
+h2 {
+  color: var(--babson-green);
+}
+.yellow {
+  color: yellow;
+  font-size: larger;
+}
+.julissa {
+  color: teal;
+  font-family: "Oswald";
+}
+#second-paragraph {
+  color: orange;
+}
+/* li a {
+  color: blueviolet;
+  text-decoration: none;
+} */
+.card {
+  background-color: lightblue;
+  padding: 20px;
+  margin: 20px auto;
+  /* width: fit-content; */
+  
+}
+.highlight {
+  font-size: 2rem;
+}
+
+ul {
+  margin: 0 auto;
+  width: 200px;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  /* width: 200px; */
+}
+
+/* When mouse hovers over a link */
+a:hover {
+  color: red;
+  background-color: yellow;
+  text-decoration: underline;
+}
+
+/* First and last child elements */
+li:first-child {
+  font-weight: bold;
+}
+li:last-child {
+  background-color: lightgray;
+}
+
+.button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition:
+    background-color 1s,
+    transform 1s ease-out;
+}
+
+.button:hover {
+  background-color: #e74c3c;
+  transform: scale(1.5);
+}
