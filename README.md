@@ -7,4 +7,4 @@ This is my course repository for OIM3690.
 
 ##Projects
 [Personal Website](avanormer/avanormer.github.io)  
-[Mini Project 1- Community Organization Website] (https://github.com/avanormer/-Mini-Project-1-Website-for-Someone-Else-)
+[Mini Project 1- Community Organization Website] (https://avanormer.github.io/The-Service-Benefit-Hub/)
