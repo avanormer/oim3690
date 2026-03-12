@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trader Joe's Grocery List</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #FFFACD; /* Pastel yellow background */
+            color: #4B0082; /* Dark blue text for contrast */
+        }
+        h1 {
+            text-align: center;
+            color: #FFB6C1; /* Light pink */
+        }
+        input { 
+            padding: 10px; 
+            width: 70%; 
+            border: 1px solid #ADD8E6; /* Pastel blue border */
+            border-radius: 5px;
+            background-color: #FFFFFF;
+        }
+        button { 
+            padding: 10px; 
+            background-color: #F8BBD9; /* Light pink button */
+            color: #4B0082;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FFB6C1; /* Slightly darker pink on hover */
+        }
+        ul { 
+            list-style: none; 
+            padding: 0; 
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        li { 
+            padding: 10px; 
+            border-bottom: 1px solid #ADD8E6; /* Pastel blue border */
+            display: flex; 
+            justify-content: space-between; 
+            background-color: #FFFFFF; /* White background for items */
+            margin-bottom: 5px;
+            border-radius: 5px;
+            align-items: center;
+        }
+        .completed { 
+            text-decoration: line-through; 
+            color: #B0E0E6; /* Pastel blue for completed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Trader Joe's Grocery List</h1>
+    <input type="text" id="item-input" placeholder="Item name">
+    <input type="number" id="price-input" placeholder="Price" step="0.01">
+    <button onclick="addTodo()">Add</button>
+    <ul id="todo-list"></ul>
+
+    <script>
+        const itemInput = document.getElementById('item-input');
+        const priceInput = document.getElementById('price-input');
+        const todoList = document.getElementById('todo-list');
+        let todos = JSON.parse(localStorage.getItem('groceries')) || [];
+
+        function renderTodos() {
+            todoList.innerHTML = '';
+            todos.forEach((todo, index) => {
+                const li = document.createElement('li');
+                li.className = todo.completed ? 'completed' : '';
+                li.innerHTML = `
+                    <span onclick="toggleComplete(${index})" style="flex-grow: 1;">${todo.text}</span>
+                    <span style="font-weight: bold;">$${todo.price ? todo.price.toFixed(2) : '0.00'}</span>
+                    <button onclick="deleteTodo(${index})">Delete</button>
+                `;
+                todoList.appendChild(li);
+            });
+        }
+
+        function addTodo() {
+            const text = itemInput.value.trim();
+            const price = parseFloat(priceInput.value) || 0;
+            if (text) {
+                todos.push({ text, price, completed: false });
+                itemInput.value = '';
+                priceInput.value = '';
+                saveTodos();
+                renderTodos();
+            }
+        }
+
+        function toggleComplete(index) {
+            todos[index].completed = !todos[index].completed;
+            saveTodos();
+            renderTodos();
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            saveTodos();
+            renderTodos();
+        }
+
+        function saveTodos() {
+            localStorage.setItem('groceries', JSON.stringify(todos));
+        }
+
+        renderTodos();
+    </script>
+</body>
+</html>
