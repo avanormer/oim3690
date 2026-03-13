@@ -6,56 +6,74 @@
     <title>Trader Joe's Grocery List</title>
     <style>
         body { 
-            font-family: Arial, sans-serif; 
-            max-width: 600px; 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            max-width: 900px; 
             margin: 0 auto; 
-            padding: 20px; 
-            background-color: #FFFACD; /* Pastel yellow background */
-            color: #4B0082; /* Dark blue text for contrast */
+            padding: 30px; 
+            background-color: #FAFAFA; /* Light gray background */
+            color: #333333; /* Dark gray text */
+            line-height: 1.6;
         }
         h1 {
             text-align: center;
-            color: #FFB6C1; /* Light pink */
-        }
-        input { 
-            padding: 10px; 
-            width: 70%; 
-            border: 1px solid #ADD8E6; /* Pastel blue border */
-            border-radius: 5px;
-            background-color: #FFFFFF;
-        }
-        button { 
-            padding: 10px; 
-            background-color: #F8BBD9; /* Light pink button */
-            color: #4B0082;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #FFB6C1; /* Slightly darker pink on hover */
+            color: #DC143C; /* Crimson red */
+            font-weight: 300;
+            margin-bottom: 40px;
+            font-size: 2em;
         }
         ul { 
             list-style: none; 
             padding: 0; 
-            margin-top: 20px;
+            margin: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
         }
         li { 
-            padding: 10px; 
-            border-bottom: 1px solid #ADD8E6; /* Pastel blue border */
+            padding: 20px; 
+            border: 1px solid #E0E0E0; /* Light gray border */
             display: flex; 
-            justify-content: space-between; 
-            background-color: #FFFFFF; /* White background for items */
-            margin-bottom: 5px;
-            border-radius: 5px;
+            flex-direction: column;
             align-items: center;
+            background-color: #FFFFFF; /* White background */
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+            transition: transform 0.2s ease;
+        }
+        li:hover {
+            transform: translateY(-2px);
         }
         .completed { 
-            text-decoration: line-through; 
-            color: #B0E0E6; /* Pastel blue for completed */
+            opacity: 0.6; /* Slightly dim for completed items */
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            animation: explode 1s ease-out forwards;
+        }
+        @keyframes explode {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1) rotate(180deg); opacity: 1; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+        img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        .item-name {
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        input[type="checkbox"] {
+            margin-top: 10px;
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -67,51 +85,57 @@
     <ul id="todo-list"></ul>
 
     <script>
-        const itemInput = document.getElementById('item-input');
-        const priceInput = document.getElementById('price-input');
         const todoList = document.getElementById('todo-list');
-        let todos = JSON.parse(localStorage.getItem('groceries')) || [];
+        let todos = JSON.parse(localStorage.getItem('groceries')) || [
+            { text: 'Organic Bananas', image: 'https://via.placeholder.com/70x70?text=Banana', restock: false },
+            { text: 'Almond Butter', image: 'https://via.placeholder.com/70x70?text=Almond+Butter', restock: true },
+            { text: 'Greek Yogurt', image: 'https://via.placeholder.com/70x70?text=Yogurt', restock: false },
+            { text: 'Whole Wheat Bread', image: 'https://via.placeholder.com/70x70?text=Bread', restock: true },
+            { text: 'Avocado', image: 'https://via.placeholder.com/70x70?text=Avocado', restock: false },
+            { text: 'Organic Milk', image: 'https://via.placeholder.com/70x70?text=Milk', restock: true },
+            { text: 'Cherry Tomatoes', image: 'https://via.placeholder.com/70x70?text=Tomatoes', restock: false },
+            { text: 'Spinach', image: 'https://via.placeholder.com/70x70?text=Spinach', restock: true },
+            { text: 'Eggs', image: 'https://via.placeholder.com/70x70?text=Eggs', restock: false },
+            { text: 'Cheddar Cheese', image: 'https://via.placeholder.com/70x70?text=Cheese', restock: true },
+            { text: 'Apples', image: 'https://via.placeholder.com/70x70?text=Apples', restock: false },
+            { text: 'Quinoa', image: 'https://via.placeholder.com/70x70?text=Quinoa', restock: true },
+            { text: 'Salmon Fillet', image: 'https://via.placeholder.com/70x70?text=Salmon', restock: false },
+            { text: 'Oatmeal', image: 'https://via.placeholder.com/70x70?text=Oatmeal', restock: true },
+            { text: 'Blueberries', image: 'https://via.placeholder.com/70x70?text=Blueberries', restock: false }
+        ];
 
         function renderTodos() {
             todoList.innerHTML = '';
             todos.forEach((todo, index) => {
                 const li = document.createElement('li');
-                li.className = todo.completed ? 'completed' : '';
+                li.className = todo.restock ? 'restock' : '';
                 li.innerHTML = `
-                    <span onclick="toggleComplete(${index})" style="flex-grow: 1;">${todo.text}</span>
-                    <span style="font-weight: bold;">$${todo.price ? todo.price.toFixed(2) : '0.00'}</span>
-                    <button onclick="deleteTodo(${index})">Delete</button>
+                    <img src="${todo.image}" alt="${todo.text}">
+                    <div class="item-name">${todo.text}</div>
+                    <input type="checkbox" ${todo.restock ? 'checked' : ''} onchange="toggleRestock(${index})">
                 `;
                 todoList.appendChild(li);
             });
         }
 
-        function addTodo() {
-            const text = itemInput.value.trim();
-            const price = parseFloat(priceInput.value) || 0;
-            if (text) {
-                todos.push({ text, price, completed: false });
-                itemInput.value = '';
-                priceInput.value = '';
-                saveTodos();
-                renderTodos();
+        function toggleRestock(index) {
+            todos[index].restock = !todos[index].restock;
+            saveTodos();
+            renderTodos();
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = Math.random() * 100 + 'vh';
+                confetti.style.backgroundColor = ['#FFD700', '#FF69B4', '#00CED1', '#FF6347', '#32CD32'][Math.floor(Math.random() * 5)];
+                document.body.appendChild(confetti);
+                setTimeout(() => {
+                    document.body.removeChild(confetti);
+                }, 1000);
             }
-        }
-
-        function toggleComplete(index) {
-            todos[index].completed = !todos[index].completed;
-            saveTodos();
-            renderTodos();
-        }
-
-        function deleteTodo(index) {
-            todos.splice(index, 1);
-            saveTodos();
-            renderTodos();
-        }
-
-        function saveTodos() {
-            localStorage.setItem('groceries', JSON.stringify(todos));
         }
 
         renderTodos();
