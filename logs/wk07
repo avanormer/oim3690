@@ -1,0 +1,47 @@
+# Session 12 - [3/3] 
+
+Why Forms Matter: how users interact with your website
+- sign up/login, contact forms, search bars, settings and checkout
+
+
+<form> element - 
+action - where to send data
+method - GET (in URL) or POST (in body)
+
+Input Types: 
+text =	Single line text	
+email =	Email addresses: Validates format
+password = Passwords: Hides characters
+number= Numbers: Spinner, min/max
+date =	Dates:	Date picker
+color =	Colors:	Color picker
+range =	Sliders:	Drag slider
+
+Form Accessibility
+ use <label> with for attribute
+
+Labels improve
+= Screen reader support
+= Click target (clicking label focuses input)
+= Mobile usability
+
+Bootstrap:	Component-based...Existing websites, enterprise
+Tailwind CSS:	Utility-first...	AI-generated code, modern projects
+shadcn/ui:	Components + Tailwind...	AI-generated UIs (v0.dev, Replit)
+
+# Session 13 - [3/5] 
+Design for mobile first and then add complexity for larger screens
+
+One line you must always include to make your site work on mobile:
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+"Without this, everything looks tiny on mobile and users have to pinch-to-zoom"
+
+Responsiveness Is Not Optional
+Every page must work on different screen sizes
+
+Always include the viewport meta tag
+Test with DevTools Device Mode (Ctrl+Shift+M) 
+Push to GitHub Pages and check on your phone
+
+***If using AI to generate code, tell it explicitly: "Make it responsive" or "Use mobile-first design"

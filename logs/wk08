@@ -1,0 +1,16 @@
+# Session 14 - [3/10] 
+
+Why JavaScript = JavaScript makes your page do things, such as: 
+
+- Respond to clicks and user input
+- Change content dynamically
+- Animate elements
+- Fetch data from servers
+Build interactive applications
+
+# Session 15 - [3/12] 
+What patterns did you find in the todo code?
+- CSS Grid layout
+- data stored in different objects
+- flexbox in each item
+- list-based structure
