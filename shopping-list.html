@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery List</title>
+</head>
+<body>
+
+  <h2>Grocery List</h2>
+
+  <ul id="list"></ul>
+
+  <input type="text" id="itemInput" placeholder="Add item">
+  <button id="addBtn">Add</button>
+
+  <script>
+    // Starting array
+    const items = ["milk", "eggs", "bread"];
+
+    const ul = document.getElementById("list");
+    const input = document.getElementById("itemInput");
+    const button = document.getElementById("addBtn");
+
+    // Function to render list
+    function renderList() {
+      ul.innerHTML = ""; // clear list
+
+      items.forEach(function(item) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+    }
+
+    // Add new item
+    button.addEventListener("click", function() {
+      const newItem = input.value.trim();
+
+      if (newItem !== "") {
+        items.push(newItem);
+        input.value = ""; // clear input
+        renderList(); // re-render list
+      }
+    });
+
+    // Initial render
+    renderList();
+  </script>
+
+</body>
+</html>

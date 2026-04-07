@@ -1,0 +1,24 @@
+# Session 16 - [3/24] 
+
+Where is the <script> tag in html? 
+<script>
+        const todoList = document.getElementById('todo-list');
+        let todos = JSON.parse(localStorage.getItem('groceries')) ||...............
+
+How does JavaScript find HTML elements on page?
+= Through created variables at the beginning
+
+What makes the "Add" button actually do something?
+<button onclick="addTodo()">Add</button>
+
+Where doe the code change the page?
+innerHTML, createElement(), and appendChild()
+
+# Session 17 - [3/26]
+
+document.querySelector('myButton') = returns null but <button id = "myButton"> is right there in the HTML... what's wrong?
+let is for values that change, const is for values that don't change
+let name = "Alice";
+let greeting = 'Hello';
+let message = 'Hi ${name}';// Template literal
+
