@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Cards</title>
+</head>
+<body>
+    <h1>Student List</h1>
+    <div id="student-list"></div>
+
+    <script>
+        const students = [
+            { name: 'Alice', grade: 'A' },
+            { name: 'Bob', grade: 'B' },
+            { name: 'Charlie', grade: 'C' }
+        ];
+
+        const list = document.querySelector('#student-list');
+
+        for (let i = 0; i < students.length; i++) {
+            const card = document.createElement('div');
+            card.textContent = `${students[i].name}: ${students[i].grade}`;
+            list.appendChild(card);
+        }
+    </script>
+</body>
+</html>

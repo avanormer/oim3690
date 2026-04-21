@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA Towns Explorer</title>
+</head>
+<body>
+    <h1>MA Towns Explorer</h1>
+    <input type="text" id="searchInput" placeholder="Search towns by name...">
+    <p id="count">Towns matched: 0</p>
+    <ul id="townList"></ul>
+    <h2>Largest Population Town</h2>
+    <p id="maxPopTown"></p>
+    <script>
+        let allTowns = [];
+
+        async function fetchTowns() {
+            try {
+                const response = await fetch('https://oim.108122.xyz/mass');
+                allTowns = await response.json();
+                displayTowns(allTowns.slice(0, 10));
+                displayMaxPopTown(allTowns);
+            } catch (error) {
+                console.error('Error fetching towns:', error);
+            }
+        }
+
+        function displayTowns(towns) {
+            const list = document.getElementById('townList');
+            list.innerHTML = towns.map(town => `<li>${town.name} - ${town.county} - Population: ${town.population}</li>`).join('');
+            document.getElementById('count').textContent = `Towns matched: ${towns.length}`;
+        }
+
+        function displayMaxPopTown(towns) {
+            const maxTown = towns.reduce((max, town) => town.population > max.population ? town : max);
+            document.getElementById('maxPopTown').textContent = `${maxTown.name} - ${maxTown.county} - Population: ${maxTown.population}`;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = allTowns.filter(town => town.name.toLowerCase().includes(query));
+            displayTowns(filtered.slice(0, 10)); // Still show first 10 of filtered
+        });
+
+        fetchTowns();
+    </script>
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\avanormer1\OneDrive - Babson College\Desktop\oim3690\town-explorer.html

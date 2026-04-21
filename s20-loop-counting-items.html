@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Grades</title>
+</head>
+<body>
+    <h1>Grade Counter</h1>
+    <div id="count"></div>
+
+    <script>
+        const grades = ['A', 'B', 'A', 'C', 'A', 'B'];
+        let countA = 0;
+
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] === 'A') {
+                countA++;
+            }
+        }
+
+        document.querySelector('#count').textContent = `Number of As: ${countA}`;
+        console.log('Number of As:', countA); // 3
+    </script>
+</body>
+</html>

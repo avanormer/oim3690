@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing Scores</title>
+</head>
+<body>
+    <h1>Passing Scores (60+)</h1>
+    <ul id="passing"></ul>
+
+    <script>
+        const scores = [88, 72, 95, 63, 45, 81, 56, 90];
+        const passList = document.querySelector('#passing');
+
+        for (let i = 0; i < scores.length; i++) {
+            if (scores[i] >= 60) {
+                const li = document.createElement('li');
+                li.textContent = scores[i];
+                passList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>

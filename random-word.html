@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Word Generator</title>
+</head>
+<body>
+    <h1>Random Word Generator</h1>
+    <button id="getWordBtn">Get Random Word</button>
+    <button id="getFiveWordsBtn">Get 5 Random Words</button>
+    <div id="output"></div>
+    <script>
+        const getWordBtn = document.getElementById('getWordBtn');
+        const getFiveWordsBtn = document.getElementById('getFiveWordsBtn');
+        const output = document.getElementById('output');
+
+        getWordBtn.addEventListener('click', async () => {
+            output.textContent = 'Loading...';
+            try {
+                const response = await fetch('https://oim.108122.xyz/words/random');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const word = await response.text();
+                output.textContent = `Random Word: ${word}`;
+            } catch (error) {
+                console.error('Error fetching word:', error);
+                output.textContent = 'Failed to fetch random word.';
+            }
+        });
+
+        getFiveWordsBtn.addEventListener('click', async () => {
+            output.innerHTML = '<p>Loading...</p>';
+            const words = [];
+            try {
+                for (let i = 0; i < 5; i++) {
+                    const response = await fetch('https://oim.108122.xyz/words/random');
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const word = await response.text();
+                    words.push(word);
+                }
+                const list = words.map(word => `<li>${word}</li>`).join('');
+                output.innerHTML = `<ul>${list}</ul>`;
+            } catch (error) {
+                console.error('Error fetching words:', error);
+                output.textContent = 'Failed to fetch random words.';
+            }
+        });
+    </script>
+</body>
+</html></content>
+ 

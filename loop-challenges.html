@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Challenges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .challenge {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .challenge h2 {
+            margin-top: 0;
+        }
+        ul {
+            column-count: 3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loop Challenges</h1>
+
+    <!-- Challenge 1: Build a list -->
+    <div class="challenge">
+        <h2>1. Build a List</h2>
+        <p>All numbers as list items:</p>
+        <ul id="numberList"></ul>
+    </div>
+
+    <!-- Challenge 2: Sum it up -->
+    <div class="challenge">
+        <h2>2. Sum It Up</h2>
+        <p>Total: <span id="sum"></span></p>
+    </div>
+
+    <!-- Challenge 3: Find the max -->
+    <div class="challenge">
+        <h2>3. Find the Max</h2>
+        <p>Largest number: <span id="max"></span></p>
+    </div>
+
+    <!-- Challenge 4: Count positives -->
+    <div class="challenge">
+        <h2>4. Count Positives</h2>
+        <p>Numbers greater than 0: <span id="positiveCount"></span></p>
+    </div>
+
+    <!-- Challenge 5: Find evens -->
+    <div class="challenge">
+        <h2>5. Find Evens</h2>
+        <p>Even numbers: <span id="evens"></span></p>
+    </div>
+
+    <script>
+        const numbers = [4, -8, 15, -16, 23, 42, -3];
+
+        // Challenge 1: Build a list
+        const numberList = document.querySelector('#numberList');
+        for (let i = 0; i < numbers.length; i++) {
+            const li = document.createElement('li');
+            li.textContent = numbers[i];
+            numberList.appendChild(li);
+        }
+
+        // Challenge 2: Sum it up
+        let sum = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        document.querySelector('#sum').textContent = sum;
+
+        // Challenge 3: Find the max
+        let max = numbers[0];
+        for (let i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+        document.querySelector('#max').textContent = max;
+
+        // Challenge 4: Count positives
+        let positiveCount = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] > 0) {
+                positiveCount++;
+            }
+        }
+        document.querySelector('#positiveCount').textContent = positiveCount;
+
+        // Challenge 5: Find evens
+        let evens = [];
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 === 0) {
+                evens.push(numbers[i]);
+            }
+        }
+        document.querySelector('#evens').textContent = evens.join(', ');
+    </script>
+</body>
+</html>
