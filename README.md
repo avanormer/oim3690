@@ -6,5 +6,9 @@ This is my course repository for OIM3690.
 ---Office Hours: By Appointment
 
 ##Projects
+
 [Personal Website](avanormer/avanormer.github.io)  
-[Mini Project 1- Community Organization Website] (https://avanormer.github.io/The-Service-Benefit-Hub/)
+
+[Mini Project 1- Community Organization Website](https://avanormer.github.io/The-Service-Benefit-Hub/)
+
+[Mini Project 2 - Flashcard Creator Tool](https://avanormer.github.io/flashcard-creator-tool/)
