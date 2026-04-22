@@ -1,0 +1,14 @@
+##Learning Log Entry #1
+I focused on learning how to fetch data from the iTunes Search API and then display artist results on the page
+The most challenging part was understanding the JSON structure and also identifying which fields stood for different artist names and images
+I practiced using fetch() and async/await to retrieve and log the data before rendering it. 
+
+##Learning Log Entry #2
+I created artist cards that included images and names of artists and organized them into a grid layout. 
+One challenge I faced was connecting the search to the API call to ensure the results updated correctly each time. 
+I also added loading and error messages to improve the overall user experience.
+
+##Learning Log Entry #3
+I focused on improving the design and interactivity of the app
+I iterated the styling to make the app more visually appealing with better spacing, colors, and effects
+I also handled edge cases such as empty searches and no results found. 
