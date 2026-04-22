@@ -12,3 +12,5 @@ This is my course repository for OIM3690.
 [Mini Project 1- Community Organization Website](https://avanormer.github.io/The-Service-Benefit-Hub/)
 
 [Mini Project 2 - Flashcard Creator Tool](https://avanormer.github.io/flashcard-creator-tool/)
+
+[Mini Project 3 - Music Artist Reccomender](https://avanormer.github.io/music-artist-recommender/)
