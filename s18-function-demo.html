@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" />
+    <br />
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" />
+    <br />
+    <label for="x">X:</label>
+    <input type="number" id="x" /> <br />
+    <label for="y">Y:</label>
+    <input type="number" id="y" /> <br />
+    <button>Calculate</button>
+    <p id="result"></p>
+
+    <script>
+      const firstName = document.getElementById("first-name");
+      const lastName = document.getElementById("last-name");
+      const x = document.getElementById("x");
+      const y = document.getElementById("y");
+      const button = document.querySelector("button");
+      const result = document.getElementById("result");
+
+      //   clicking button will show the sum of x and y in the result paragraph
+      function add(a, b) {
+        return a + b;
+      }
+
+      button.addEventListener("click", () => {
+        let firstNameInput, lastNameInput, xInput, yInput;
+        firstNameInput = firstName.value;
+        lastNameInput = lastName.value;
+        xInput = parseFloat(x.value);
+        yInput = parseFloat(y.value);
+        const fullname = add(firstNameInput, lastNameInput);
+        const sum = add(xInput, yInput);
+        result.textContent = `${fullname}, sum is: ${sum}`;
+      });
+    </script>
+  </body>
+</html>

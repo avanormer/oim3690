@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action=""></form>
+    <!-- need to stop the form from submitting and refreshing the page -->
+    <button>You are fired!</button>
+    <script>
+      // Strings:
+      //   const name = window.prompt("What is your name?"); // This will show a prompt to the user to enter their name
+      const firstName = "Michael";
+      const lastName = "Scott";
+      let name = `${firstName} ${lastName}`;
+
+      name = "Dwight Schrute";
+      const message = `Hello, ${name}!`;
+      console.log(message);
+
+      // Numbers:
+      let age = 45;
+      age = age + 5; // This will cause an error because age is a constant
+      console.log(`In 5 years, ${name} will be ${age + 5} years old.`);
+
+      //   Boolean:
+      let isEmployed = true;
+      console.log(`Is ${name} employed? ${isEmployed}`);
+
+      if (isEmployed) {
+        console.log(`${name} is working at Dunder Mifflin.`);
+      } else {
+        console.log(`${name} is currently unemployed.`);
+      }
+
+      // undefined and null:
+      let officeLocation; // This variable is undefined
+      console.log(`Office location: ${officeLocation}`);
+
+      let manager = null; // This variable is null
+      console.log(`Manager of Dunder Mifflin is ${manager}.`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="app">
+    <h1>📌 Student Task Tracker</h1>
+
+    <form id="todo-form">
+      <input 
+        id="todo-input" 
+        type="text" 
+        placeholder="Add assignment, workout, or task..."
+        required
+      />
+      <button type="submit" class="primary">Add</button>
+    </form>
+
+    <p id="empty-state" class="empty">No tasks yet — stay productive ✨</p>
+
+    <ul id="todo-list"></ul>
+
+    <div class="footer">
+      <span id="count"></span>
+      <button id="clear-completed">Clear Completed</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

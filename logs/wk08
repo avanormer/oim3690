@@ -14,3 +14,13 @@ What patterns did you find in the todo code?
 - data stored in different objects
 - flexbox in each item
 - list-based structure
+
+# Session 15 - [3/12] 
+
+Single working app is a combination of HTML, CSS and JavaScript
+- build, test, improve = iterative development process
+- must focus on functionality and user experience
+- clean structure and organization of files is crucial
+- JavaScript = dynamically updates page (DOM Manipulation)
+- handle user input to connect to app behavior
+*debugging and testing are part of development workflow

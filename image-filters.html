@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Filter Studio</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #fdfbff, #f3f0ff);
+        color: #2b2b2b;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      canvas {
+        border: 1px solid #ddd;
+        margin: 10px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      }
+
+      button {
+        padding: 8px 16px;
+        margin: 6px;
+        font-size: 0.95em;
+        cursor: pointer;
+        border-radius: 999px;
+        border: none;
+        background: #9b5de5;
+        color: white;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      }
+
+      #rgb-info {
+        display: inline-block;
+        padding: 8px 16px;
+        min-width: 220px;
+        border-radius: 6px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>🎨 Photo Filter Studio</h1>
+    <p>Hover over the image to explore colors + apply filters</p>
+
+    <div>
+      <canvas id="original-canvas"></canvas>
+      <canvas id="filtered-canvas"></canvas>
+    </div>
+
+    <div>
+      <button id="btn-red">Warm Tone</button>
+      <button id="btn-gray">High Contrast</button>
+      <button id="btn-negative">Invert</button>
+      <button id="btn-blur">Soft Blur</button>
+    </div>
+
+    <h2 id="rgb-info"></h2>
+
+    <script>
+      const image = new Image();
+      image.src = "images/tiger1.jpg";
+
+      const originalCanvas = document.getElementById("original-canvas");
+      const filteredCanvas = document.getElementById("filtered-canvas");
+      const originalCtx = originalCanvas.getContext("2d");
+      const filteredCtx = filteredCanvas.getContext("2d");
+      const rgbInfo = document.getElementById("rgb-info");
+
+      image.onload = function () {
+        originalCanvas.width = image.width;
+        originalCanvas.height = image.height;
+        filteredCanvas.width = image.width;
+        filteredCanvas.height = image.height;
+
+        originalCtx.drawImage(image, 0, 0);
+      };
+
+      originalCanvas.addEventListener("mousemove", function (event) {
+        const x = event.offsetX;
+        const y = event.offsetY;
+        const pixel = originalCtx.getImageData(x, y, 1, 1);
+        const d = pixel.data;
+
+        const rgba = `rgba(${d[0]}, ${d[1]}, ${d[2]}, ${(d[3] / 255).toFixed(2)})`;
+        rgbInfo.style.background = rgba;
+        rgbInfo.textContent = rgba;
+        rgbInfo.style.color = d[0] + d[1] + d[2] < 380 ? "white" : "black";
+      });
+
+      function getFilteredImageData() {
+        filteredCtx.drawImage(image, 0, 0);
+        return filteredCtx.getImageData(
+          0,
+          0,
+          filteredCanvas.width,
+          filteredCanvas.height,
+        );
+      }
+
+      function redFilter() {
+        const imgData = getFilteredImageData();
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          imgData.data[i + 1] = 0;
+        }
+        filteredCtx.putImageData(imgData, 0, 0);
+      }
+
+      function grayscaleFilter() {
+        const imgData = getFilteredImageData();
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          let avg =
+            (imgData.data[i] + imgData.data[i + 1] + imgData.data[i + 2]) / 3;
+
+          if (avg > 60) {
+            avg = 255;
+          } else {
+            avg = 0;
+          }
+
+          imgData.data[i] = avg;
+          imgData.data[i + 1] = avg;
+          imgData.data[i + 2] = avg;
+        }
+        filteredCtx.putImageData(imgData, 0, 0);
+      }
+
+      function negativeFilter() {
+        const imgData = getFilteredImageData();
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          imgData.data[i] = 255 - imgData.data[i];
+          imgData.data[i + 1] = 255 - imgData.data[i + 1];
+          imgData.data[i + 2] = 255 - imgData.data[i + 2];
+        }
+        filteredCtx.putImageData(imgData, 0, 0);
+      }
+
+      function blurFilter() {
+        const imgData = getFilteredImageData();
+        const width = imgData.width;
+        const height = imgData.height;
+        const data = imgData.data;
+
+        const originalData = new Uint8ClampedArray(data);
+        const kernel = 5;
+        const radius = 2;
+        const invCount = 1 / (kernel * kernel);
+
+        for (let y = radius; y < height - radius; y++) {
+          for (let x = radius; x < width - radius; x++) {
+            let r = 0, g = 0, b = 0;
+
+            for (let j = -radius; j <= radius; j++) {
+              for (let i = -radius; i <= radius; i++) {
+                const idx = ((y + j) * width + (x + i)) * 4;
+                r += originalData[idx];
+                g += originalData[idx + 1];
+                b += originalData[idx + 2];
+              }
+            }
+
+            const idx = (y * width + x) * 4;
+            data[idx] = r * invCount;
+            data[idx + 1] = g * invCount;
+            data[idx + 2] = b * invCount;
+          }
+        }
+
+        filteredCtx.putImageData(imgData, 0, 0);
+      }
+
+      document.getElementById("btn-red").addEventListener("click", redFilter);
+      document.getElementById("btn-gray").addEventListener("click", grayscaleFilter);
+      document.getElementById("btn-negative").addEventListener("click", negativeFilter);
+      document.getElementById("btn-blur").addEventListener("click", blurFilter);
+    </script>
+  </body>
+</html>

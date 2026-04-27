@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="search" />
+    <button>Click</button>
+    <div id="result"></div>
+
+    <script>
+      const btn = document.querySelector("button");
+      const result = document.querySelector("#result");
+
+      async function getRandomWord() {
+        const response = await fetch("https://oim.108122.xyz/words/random");
+        const word = await response.json();
+        console.log(word);
+        result.innerHTML += `<p>${word}</p>`;
+      }
+
+      function showStuff() {
+        result.innerHTML += "<p>Hello, World!</p>";
+      }
+
+      async function showTowns() {
+        const response = await fetch(
+          "https://oim.108122.xyz/mass",
+
+          {
+            headers: {
+              "X-Token": "charlescharles",
+            },
+          },
+        );
+        const data = await response.json();
+
+        console.log(data.name); // 'Massachusetts'
+        console.log(data["governor"]); // 'Maura Healey'
+
+        for (const town of data.data) {
+          result.innerHTML += `<p>${town.name}: pop ${town.population}</p>`;
+        }
+
+        // console.log(data.data.length); // undefined
+      }
+
+      async function findTown() {
+        const search = document.querySelector("#search").value.toLowerCase();
+        const response = await fetch("https://oim.108122.xyz/mass");
+        const data = await response.json();
+
+        const matches = [];
+        for (const town of data.data) {
+          if (town.name.toLowerCase().includes(search)) {
+            matches.push(town);
+          }
+        }
+
+        if (matches.length === 0) {
+          result.innerHTML += "<p>No matches found.</p>";
+        } else {
+          for (const match of matches) {
+            result.innerHTML += `<p>${match.name}: pop ${match.population}</p>`;
+          }
+        }
+      }
+
+      document.querySelector("#search").addEventListener("input", () => {
+        result.innerHTML = ""; // Clear previous results
+        findTown();
+      });
+
+      btn.addEventListener("click", () => {
+        // getRandomWord();
+        // showStuff();
+        // showTowns();
+        findTown();
+      });
+    </script>
+  </body>
+</html>

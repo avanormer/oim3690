@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Set Interval Demo</h1>
+    <div id="display"></div>
+    <script>
+      let count = 10;
+      const timer = setInterval(() => {
+        document.getElementById("display").textContent = count;
+        count--;
+        if (count < 0) clearInterval(timer);
+      }, 1000);
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(`You are at ${latitude}, ${longitude}`);
+        },
+        (error) => {
+          console.log("Location access denied");
+        },
+      );
+    </script>
+  </body>
+</html>

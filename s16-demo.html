@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Play with JS</h1>
+    <button>Click Me!</button>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+      temporibus natus!
+    </p>
+    <p id="message">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+    </p>
+    <script>
+      const h1 = document.querySelector("h1"); // create a varialbe to store the h1 element
+      const message = document.querySelector("#message"); // create a variable to store the message element
+
+      document.querySelector("button").addEventListener("click", function () {
+        h1.textContent = "Heading Clicked!";
+        h1.style.color = "red";
+        console.log("Button clicked!");
+
+        message.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="">Rating: <input type="number" id="ratingInput" min="0" max="5"></label>
+    <button>Click</button>
+    <div id="stars"></div>
+
+    <script>
+      const btn = document.querySelector("button");
+      const ratingInput = document.querySelector("#ratingInput");
+      const container = document.querySelector("#stars");
+      let stars = "";
+
+      ratingInput.addEventListener("input", function() {
+        const rating = parseInt(ratingInput.value) || 0;
+        stars = "";
+        for (let i = 0; i < 5; i++) {
+          if (i < rating) {
+            stars += "★";
+          } else {
+            stars += "☆";
+          }
+        }
+        container.textContent = stars;
+      });
+    </script>
+  </body>
+</html>

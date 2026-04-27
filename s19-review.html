@@ -1,14 +1,81 @@
-function getGrade (score) {
-    if (score >=90) {
-        // console.log('A');
-        return 'A';
-    } else {
-        // console.log('Not A');
-        return 'Not A';
-    }   
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="name" placeholder="Name" />
+    <input type="text" id="age" placeholder="Age" />
+    <input type="text" id="country" placeholder="Country" />
+    <button>Click</button>
+    <p></p>
+    <script>
+      function sayHello() {
+        username = prompt("What is your name?");
+        if (username) {
+          username = username.trim().toUpperCase();
+        } else {
+          username = "GUEST";
+        }
+        document.querySelector("p").textContent = `Hello, ${username}!`;
+      }
 
-    let result = getGrade (95)
-    console.log (`You get ${result}!`)
-}
-function square (x)
- 
+      function check() {
+        const name = document.getElementById("name").value.trim();
+        const age = parseInt(document.getElementById("age").value.trim());
+        const country = document.getElementById("country").value.trim();
+        const p = document.querySelector("p");
+
+        if (!name) {
+          alert("Please enter your name.");
+          return;
+        }
+
+        if (age < 21 && country.toLowerCase() === "usa") {
+          p.textContent = `No you cannot drink, ${name}!`;
+        } else {
+          p.textContent = `Yes you can drink, ${name}!`;
+        }
+      }
+
+      function checkDiscount() {
+        const name = document.getElementById("name").value.trim();
+        const age = parseInt(document.getElementById("age").value.trim());
+        const country = document.getElementById("country").value.trim();
+        const p = document.querySelector("p");
+
+        if (!name) {
+          alert("Please enter your name.");
+          return;
+        }
+
+        if (age <= 22 || age >= 65) {
+          p.textContent = `You get a discount, ${name}!`;
+        } else {
+          p.textContent = `Sorry you don't get a discount, ${name}!`;
+        }
+      }
+      document.querySelector("button").addEventListener(
+        "click",
+        //   check
+        checkDiscount,
+      );
+      let input = document.querySelector("input");
+      const body = document.querySelector("body");
+
+      input.addEventListener("input", function () {
+        let value = input.value;
+
+        if (value.length === 0) {
+          body.style.backgroundColor = "gray";
+        } else if (value.length < 4) {
+          body.style.backgroundColor = "red";
+        } else {
+          body.style.backgroundColor = "green";
+        }
+      });
+    </script>
+  </body>
+</html>

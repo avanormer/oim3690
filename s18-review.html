@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter name" />
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="text" id="price" placeholder="Enter price" />
+    </div>
+    <div>
+      <label for="tax">Tax:</label>
+      <input type="text" id="tax" placeholder="Enter tax" />
+    </div>
+    <div>
+      <button id="calculate">Calculate Total</button>
+      <p id="total">Total: $0.00</p>
+    </div>
+
+    <script>
+      document
+        .getElementById("calculate")
+        .addEventListener("click", function () {
+          const nameInput = document.getElementById("name").value;
+          const priceInput = document.getElementById("price").value;
+          const taxInput = document.getElementById("tax").value;
+          const totalOutput = document.getElementById("total");
+
+          console.log(typeof priceInput); // This will log the type of priceInput
+          console.log(typeof taxInput); // This will log the type of taxInput
+
+          const price = parseFloat(priceInput);
+          const tax = parseFloat(taxInput);
+
+          console.log(typeof price); // This will log the type of price after parsing
+          console.log(typeof tax); // This will log the type of tax after parsing
+
+          const total = price + tax;
+          totalOutput.textContent = `Hello, ${nameInput}! Total: $${total.toFixed(2)}`;
+        });
+    </script>
+  </body>
+</html>

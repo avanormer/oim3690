@@ -1,0 +1,23 @@
+# Session 20 - [4/07]
+- Integrate JavaScript with UI elements in order to create stronger interactive features
+- Connect front end to APIs using fetch() in order to send + receive data
+= Work w/ JSON responses so you can extract needed information
+Important to update DOM dynamically based on API results
+Process user input, send request, display response flow
+Implement loading states (“Thinking…”) to get a lot better user feedback
+= Improve UI/UX by throughout layout, responsiveness, and usability
+
+
+# Session 21 - [4/26]
+Important - use fetch() to send requests to an API endpoint
+- you can use requests to use HTTP methods (GET, POST, etc..)
+- data is sent/received in JSON formatting
+-parses responses using .json format
+
+asynchronous behavior means code doens't run in order
+- use async/await to handle asyn operationrs
+
+API errors; check response.ok and ues try/catch for failures
+
+
+

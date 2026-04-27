@@ -1,0 +1,18 @@
+# Session 25 - [4/23] 
+JavaScript Extras:
+- setTimeout/setInterval
+localStorage
+Store data that survives page refresh and browser close.
+- Always wrap fetch() calls in try/catch. Show users a helpful message, not a blank page.
+
+Geolocation API
+Get the user's location (requires permission):
+
+React =	Meta	= Component-based UI (most jobs)
+Vue	=Community=	Easier learning curve
+Next.js = Vercel	= React + backend in one project
+Svelte	= Community =	Compiles to vanilla JS
+
+
+
+
