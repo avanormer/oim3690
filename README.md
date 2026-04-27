@@ -13,7 +13,4 @@ This is my course repository for OIM3690.
 
 [Mini Project 2 - Flashcard Creator Tool](https://avanormer.github.io/flashcard-creator-tool/)
 
-[Mini Project 3 - Music Artist Recommender](https://avanormer.github.io/music-artist-recommender/)
-
-[Final Project - Student Budget Tracker](https://avanormer.github.io/student-budget-tracker/)
-
+Mini 
